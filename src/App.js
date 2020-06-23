@@ -1,11 +1,19 @@
 import React from 'react';
-import './App.css';
+import {BrowserRouter, Route} from "react-router-dom";
 
-function App() {
+import TestComponent from "./testComponent";
+
+const App = () => {
     return (
-        <div className="App">
-            It is working
-        </div>
+        <BrowserRouter>
+            {/*<Route path="/test-component" component={TestComponent}/>*/}
+            <Route path={"/test-component"}
+                   render={() => <TestComponent>This is a test component...</TestComponent>}/>
+            <Route path={"/"}
+                   exact
+                   component={() => <p>Main page - go to /test-component to see if routing works</p>}/>
+
+        </BrowserRouter>
     );
 }
 
