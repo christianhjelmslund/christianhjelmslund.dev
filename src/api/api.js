@@ -6,4 +6,4 @@ const instance = axios.create({
 
 export default instance
 
-export { testRequest } from "./requests/getResponse"
+export { getAllPosts } from "./requests/getAllPosts"

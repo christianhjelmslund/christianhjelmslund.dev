@@ -1,25 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux"; // to use connect
-import {applyMiddleware, compose, createStore} from "redux";
+import {applyMiddleware, compose, createStore, combineReducers} from "redux";
 import thunk from "redux-thunk";
-// applyMiddleware for thunk,
-// compose to be able to use redux developer tool
-// createStore to create the redux store
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from "./redux/reducers/reducers";
+import postsReducer from "./redux/reducers/postsReducer";
 
 const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
-const store = createStore(reducer, null, composeEnhancers(applyMiddleware(thunk)))
-
+const rootReducer = combineReducers(({
+    posts: postsReducer,
+}))
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
+        <Provider store={createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))}>
             <App/>
         </Provider>
     </React.StrictMode>,
