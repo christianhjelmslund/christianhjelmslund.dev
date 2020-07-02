@@ -13,7 +13,7 @@ const Posts = props => {
         onFetchOrders()
     }, [onFetchOrders])
 
-    const posts = props.posts.map(post => {
+    return props.posts.map(post => {
         return <Post
             key={post.id}
             date={post.date}
@@ -23,15 +23,6 @@ const Posts = props => {
             popularity={post.popularity}
             categories={post.categories}/>
     })
-    return <div style={{
-        width: '50%',
-        padding: '1rem',
-        justifyContent: 'space-between',
-        margin: 'auto',
-        borderRadius: '5px',
-        backgroundColor: 'lightgray',
-        boxShadow: '0 2px 1px rgba(0, 0, 0, 0.1)'
-    }}>{posts}</div>
 }
 
 
