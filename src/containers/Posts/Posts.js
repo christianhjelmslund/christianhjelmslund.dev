@@ -2,9 +2,9 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import * as actions from "../../redux/actions/actions"
 
-import Card from "../../components/UI/Card/Card"
 import Post from "./Post/Post"
-
+import withErrorHandler from "../../hoc/withErrorHandler";
+import axios from "axios"
 const Posts = props => {
 
     const {onFetchOrders} = props
@@ -34,8 +34,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        posts: state.posts.posts
+        posts: state.posts.posts,
+        error: state.posts.error
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts)
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts, axios))
