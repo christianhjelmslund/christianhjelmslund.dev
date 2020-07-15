@@ -2,8 +2,8 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import * as actions from "../../redux/actions/actions"
 
-import Card from "../../components/UI/Card/Card"
 import Post from "./Post/Post"
+import withErrorHandler from "../../hoc/withErrorHandler"
 
 const Posts = props => {
 
@@ -34,8 +34,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        posts: state.posts.posts
+        posts: state.posts.posts,
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts)
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts))
