@@ -8,7 +8,6 @@ const Layout = props => {
             <main style={{marginTop: "110px"}}>{props.children}</main>
         </React.Fragment>
     )
-
 }
 
 export default Layout

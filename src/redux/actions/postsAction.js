@@ -9,11 +9,7 @@ export const getAllPosts = () => {
     return dispatch => {
         dispatch(getPostsStart())
         api.getAllPosts()
-            .then(data => {
-                dispatch(getPostsSuccess(data))
-            })
-            .catch(error => {
-                console.log(error)
-                dispatch(getPostsError())})
+            .then(data => {dispatch(getPostsSuccess(data))})
+            .catch(_ => { dispatch(getPostsError())})
     }
 }

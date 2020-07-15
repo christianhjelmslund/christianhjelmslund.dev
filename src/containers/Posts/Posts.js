@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import * as actions from "../../redux/actions/actions"
 
 import Post from "./Post/Post"
-import withErrorHandler from "../../hoc/withErrorHandler";
-import axios from "axios"
+import withErrorHandler from "../../hoc/withErrorHandler"
+
 const Posts = props => {
 
     const {onFetchOrders} = props
@@ -35,8 +35,7 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
     return {
         posts: state.posts.posts,
-        error: state.posts.error
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts, axios))
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts))
