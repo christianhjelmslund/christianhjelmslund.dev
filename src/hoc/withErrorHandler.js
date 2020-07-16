@@ -4,7 +4,6 @@ import api from "../api/api"
 import useHttpErrorHandler from "../hooks/httpErrorHandling"
 
 const withErrorHandler = (WrappedComponent) => {
-
     return props => {
         const [error, clearError] = useHttpErrorHandler(api)
 

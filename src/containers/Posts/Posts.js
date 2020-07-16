@@ -5,7 +5,7 @@ import * as actions from "../../redux/actions/actions"
 import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
 
-const Posts = props => {
+export const Posts = props => {
 
     const {onFetchOrders} = props
 
@@ -13,16 +13,18 @@ const Posts = props => {
         onFetchOrders()
     }, [onFetchOrders])
 
-    return props.posts.map(post => {
-        return <Post
-            key={post.id}
-            date={post.date}
-            title={post.title}
-            author={post.author}
-            content={post.content}
-            popularity={post.popularity}
-            categories={post.categories}/>
-    })
+    if (props.posts) {
+        return props.posts.map(post => {
+            return <Post
+                key={post.id}
+                date={post.date}
+                title={post.title}
+                author={post.author}
+                content={post.content}
+                popularity={post.popularity}
+                categories={post.categories}/>
+        })
+    }
 }
 
 
