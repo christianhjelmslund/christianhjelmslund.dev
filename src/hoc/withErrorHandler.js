@@ -6,8 +6,6 @@ const withErrorHandler = (WrappedComponent, useHttpErrorHandler) => {
     return props => {
         const [error, clearError] = useHttpErrorHandler(api)
 
-        console.log(error)
-
         const errorDismissed = () => {
             clearError()
             props.history.push("/")
