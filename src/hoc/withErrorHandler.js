@@ -1,10 +1,8 @@
 import React from "react";
 import Alert from "react-bootstrap/Alert"
 import api from "../api/api"
-import useHttpErrorHandler from "../hooks/httpErrorHandling"
 
-const withErrorHandler = (WrappedComponent) => {
-
+const withErrorHandler = (WrappedComponent, useHttpErrorHandler) => {
     return props => {
         const [error, clearError] = useHttpErrorHandler(api)
 

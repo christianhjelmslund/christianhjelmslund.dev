@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 
 import './custom.scss'
-import Layout from "./containers/Layout/Layout";
+import Layout from "./components/Layout/Layout";
 import Posts from "./containers/Posts/Posts"
 import Button from "react-bootstrap/Button"
 
