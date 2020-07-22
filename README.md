@@ -2,7 +2,7 @@
 
 - [Project Goal](#project-goal)
 - [Content](#content)
-- [Running it](#How to run it)
+- [Running it](#how-to-run-it)
 
 
 ### Project Goal
