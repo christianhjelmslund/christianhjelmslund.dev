@@ -1,4 +1,6 @@
-## My Personal Website
+## My Personal Website 💪🏽
+
+<img src="https://github.com/react-icons/react-icons/blob/master/react-icons.svg" width="200">
 
 - [Project Goal](#project-goal)
 - [Content](#content)
