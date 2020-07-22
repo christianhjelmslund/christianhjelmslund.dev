@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import * as actions from "../../redux/actions/actions"
 
+import useHttpErrorHandler from "../../hooks/httpErrorHandling"
 import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
 
@@ -40,4 +41,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts))
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Posts, useHttpErrorHandler))
