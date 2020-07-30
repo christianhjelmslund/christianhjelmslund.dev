@@ -3,14 +3,14 @@ import React from 'react'
 import {configure, shallow} from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 
-import Toolbar from "../../components/UI/Toolbar/Toolbar";
-import NavigationItems from "../../components/UI/Toolbar/NavigationItems/NavigationItems";
+import NavigationBar from "../../components/UI/NavigationBar/NavigationBar";
+import NavigationItems from "../../components/UI/NavigationBar/NavigationItems/NavigationItems";
 
 configure({adapter: new Adapter()})
 
-describe("<Toolbar/>", function () {
+describe("<NavigationBar/>", function () {
     it('should contain a <NavigationItems/>', function () {
-        const wrapper = shallow(<Toolbar/>)
+        const wrapper = shallow(<NavigationBar/>)
         expect(wrapper.contains(<NavigationItems/>)).toEqual(true)
     })
 })

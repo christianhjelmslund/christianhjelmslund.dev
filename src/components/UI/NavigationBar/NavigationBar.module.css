@@ -1,14 +1,15 @@
-.Toolbar {
-    height: 100px;
+
+.NavigationBar {
+    height: auto;
     width: 100%;
     position: fixed; /* so it doesn't scroll with page*/
     top: 0;
     left: 0; /* top and left*/
-    background-color: #071f28;
+    background-color: var(--custom_black);
     display: flex; /* alligns elements next to each other (default is row)*/
-    justify-content: space-between; /* fills out the toolbar so there is space between (has to be with display flex) */
+    justify-content: center; /* fills out the toolbar so there is space between (has to be with display flex) */
     align-items: center;
-    padding: 40px 0 0 0;
+    padding: 0 0 0 0;
     box-sizing: border-box;
     z-index: 90;  /* has to be lower than the backdrop (imagine it as a stack) */
 }
