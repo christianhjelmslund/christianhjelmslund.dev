@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 
 const Post = (props) => {
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card >
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <p>{props.author}</p>
