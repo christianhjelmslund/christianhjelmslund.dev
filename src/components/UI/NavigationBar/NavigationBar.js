@@ -25,7 +25,7 @@ const NavigationBar = () => {
                 </Col>
                 <Col>
                     <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}
-                                        link={"https://github.com/christianhjelmslund"}/>
+                                        link={"https://www.linkedin.com/in/christian-hjelmslund/"}/>
                 </Col>
                 <Col>
                     <ExternalNavigation src={FacebookIcon} alt={"Facebook"}
