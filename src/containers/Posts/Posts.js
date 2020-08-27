@@ -1,8 +1,7 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {Row, Col, Card, Button, Container} from "react-bootstrap"
+import {Row, Col, Container} from "react-bootstrap"
 import * as actions from "../../redux/actions/actions"
-
 
 import useHttpErrorHandler from "../../hooks/httpErrorHandling"
 import Post from "./Post/Post"
@@ -25,29 +24,29 @@ export const Posts = props => {
                 author={post.author}
                 content={post.content}
                 popularity={post.popularity}
-                categories={post.categories}/>
+                categories={["finance", "software"]}/>
         })
         return (
             <Container fluid={true}>
                 <Row>
                     <Col>
-                        <Card>
-                            <Button>Dummy Button!</Button>
-                            <br/>
-                            <div>
-                                This is some idea of what the sidebar could be used for...
-                            </div>
-                        </Card>
+                        {/*<Card>*/}
+                        {/*    <Button>Dummy Button!</Button>*/}
+                        {/*    <br/>*/}
+                        {/*    <div>*/}
+                        {/*        This is some idea of what the sidebar could be used for...*/}
+                        {/*    </div>*/}
+                        {/*</Card>*/}
                     </Col>
                     <Col xs={6}>{Posts}</Col>
                     <Col>
-                        <Card bg={"light"}>
-                            <Button>Dummy Button!</Button>
-                            <br/>
-                            <div>
-                                This is some idea of what the sidebar could be used for...
-                            </div>
-                        </Card>
+                        {/*<Card bg={"light"}>*/}
+                        {/*    <Button>Dummy Button!</Button>*/}
+                        {/*    <br/>*/}
+                        {/*    <div>*/}
+                        {/*        This is some idea of what the sidebar could be used for...*/}
+                        {/*    </div>*/}
+                        {/*</Card>*/}
                     </Col>
                 </Row>
             </Container>
