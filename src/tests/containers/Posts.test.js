@@ -38,7 +38,7 @@ describe('<Posts/>', () => {
                 author: "author",
                 content: "this is content",
                 popularity: 23,
-                categories: ["tech", "business"]
+                category: ["tech", "business"]
             },{},{},{}]})
         expect(wrapper.contains(<Post title={"title"}
                                       author={"author"}

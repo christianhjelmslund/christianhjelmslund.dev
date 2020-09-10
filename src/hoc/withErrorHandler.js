@@ -17,7 +17,7 @@ const withErrorHandler = (WrappedComponent, useHttpErrorHandler) => {
                 {error ? <Alert variant="danger" dismissible onClose={() => errorDismissed()}>
                     <Alert.Heading>Oh snap! You got an error while fetching posts!</Alert.Heading>
                     <p>
-                        Please try again another time. Sorry for the inconvenience 😕
+                        Please try again another time. Sorry for the inconvenience
                     </p>
                 </Alert> : null}
             </React.Fragment>)
