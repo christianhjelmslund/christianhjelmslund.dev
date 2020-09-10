@@ -47,7 +47,7 @@ const Post = (props) => {
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
-                    {props.content}
+                    {props.content }
                 </Card.Text>
                 <StyledButton variant={"custom_dark_cyan"}>Read full post</StyledButton>
             </Card.Body>

@@ -9,11 +9,15 @@ import withErrorHandler from "../../hoc/withErrorHandler"
 
 export const Posts = props => {
 
-    const {onFetchOrders} = props
+    const {onFetchPosts} = props
+
+    const filterPosts = (category, posts) => {
+        return posts.filter(post => post.props.categories.includes(category))
+    }
 
     useEffect(() => {
-        onFetchOrders()
-    }, [onFetchOrders])
+        onFetchPosts()
+    }, [onFetchPosts])
 
     if (props.posts) {
         const Posts = props.posts.map(post => {
@@ -24,29 +28,23 @@ export const Posts = props => {
                 author={post.author}
                 content={post.content}
                 popularity={post.popularity}
-                categories={["finance", "software"]}/>
-        })
+                categories={post.category}/>
+        }).reverse()
+        const PostsLeft = Posts.slice(0,Posts.length/2)
+        const PostsRight = Posts.slice(Posts.length/2)
+
         return (
             <Container fluid={true}>
                 <Row>
                     <Col>
-                        {/*<Card>*/}
-                        {/*    <Button>Dummy Button!</Button>*/}
-                        {/*    <br/>*/}
-                        {/*    <div>*/}
-                        {/*        This is some idea of what the sidebar could be used for...*/}
-                        {/*    </div>*/}
-                        {/*</Card>*/}
                     </Col>
-                    <Col xs={6}>{Posts}</Col>
+                       <Col>
+                           {PostsLeft}
+                       </Col>
+                       <Col>
+                           {PostsRight}
+                       </Col>
                     <Col>
-                        {/*<Card bg={"light"}>*/}
-                        {/*    <Button>Dummy Button!</Button>*/}
-                        {/*    <br/>*/}
-                        {/*    <div>*/}
-                        {/*        This is some idea of what the sidebar could be used for...*/}
-                        {/*    </div>*/}
-                        {/*</Card>*/}
                     </Col>
                 </Row>
             </Container>
@@ -57,7 +55,7 @@ export const Posts = props => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrders: () => dispatch(actions.getAllPosts())
+        onFetchPosts: () => dispatch(actions.getAllPosts())
     }
 }
 
