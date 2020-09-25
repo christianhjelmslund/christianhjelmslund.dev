@@ -63,7 +63,8 @@ export const Posts = props => {
                 author={post.author}
                 content={post.content}
                 popularity={post.popularity}
-                categories={post.category}/>
+                categories={post.category}
+                filter={(category) => filterPostsByCategory(category, posts)}/>
             }).reverse()
         }
         const postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
@@ -92,7 +93,7 @@ export const Posts = props => {
                             }}>
                             {[...categories].map(category => {
                                 return (
-                                    <StyledButton variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
+                                    <StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
                             }
                             </div>
                             <Button style={{

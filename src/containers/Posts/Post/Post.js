@@ -54,7 +54,7 @@ const Post = (props) => {
                     gap: "12px"
                 }}>
                     {props.categories.map(category => {
-                        return (<StyledButton variant="custom_dark" buttonTitle={category}/>)
+                        return (<StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => props.filter(category)}/>)
                     })}
                 </flex-gap>
                 <StyledText>
