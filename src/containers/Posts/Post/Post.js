@@ -1,17 +1,13 @@
 import React from "react";
 
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
+import StyledButton from "../../../components/UI/Button";
 
 import styled from 'styled-components'
 
 const StyledCard = styled(Card)`
     margin-bottom: 20px;
-`
-
-const StyledButton = styled(Button)`
-    border: 2px solid white;
 `
 
 const StyledText = styled.span`
@@ -47,9 +43,9 @@ const Post = (props) => {
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
-                    {props.content }
+                    {props.content}
                 </Card.Text>
-                <StyledButton variant={"custom_dark_cyan"}>Read full post</StyledButton>
+                <StyledButton variant="custom_dark_cyan" buttonTitle={"Read more"}/>
             </Card.Body>
             <Card.Footer>
                 <flex-gap style={{
@@ -58,7 +54,7 @@ const Post = (props) => {
                     gap: "12px"
                 }}>
                     {props.categories.map(category => {
-                        return (<StyledButton variant={"custom_dark"}>{category}</StyledButton>)
+                        return (<StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => props.filter(category)}/>)
                     })}
                 </flex-gap>
                 <StyledText>
