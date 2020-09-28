@@ -6,7 +6,7 @@ import GithubIcon from "../../../assets/images/github.svg"
 import LinkedInIcon from "../../../assets/images/linkedin.svg"
 import FacebookIcon from "../../../assets/images/facebook.svg"
 
-import ExternalNavigation from "../ExternalNavigation";
+import ExternalNavigation from "../StyledComponents/LinkButton";
 
 import {Row, Col} from "react-bootstrap"
 

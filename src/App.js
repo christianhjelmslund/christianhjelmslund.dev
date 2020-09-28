@@ -4,13 +4,15 @@ import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import './custom.scss'
 import Layout from "./components/Layout/Layout";
 import Posts from "./containers/Posts/Posts"
+import Home from "./components/Home/Home"
 import Button from "react-bootstrap/Button"
+
 
 const App = () => {
 
     let routes = (
         <Switch>
-            <Route path={"/"} exact component={() => <p>This is the home page</p>}/>
+            <Route path={"/"} exact component={Home}/>
             <Route path={"/posts"} component={Posts}/>
             <Route path={"/investing"} component={() => <Button variant="primary">Primary</Button>}/>
             <Redirect to={"/"}/>
@@ -18,8 +20,8 @@ const App = () => {
     )
 
     return (
-        <BrowserRouter>
-            <Layout>
+        <BrowserRouter >
+            <Layout >
                 {routes}
             </Layout>
         </BrowserRouter>

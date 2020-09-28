@@ -1,6 +1,6 @@
 
 .NavigationBar {
-    height: auto;
+    height: 100px;
     width: 100%;
     position: fixed; /* so it doesn't scroll with page*/
     top: 0;

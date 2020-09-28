@@ -2,13 +2,9 @@ import React from "react";
 
 import Card from 'react-bootstrap/Card'
 import Dropdown from 'react-bootstrap/Dropdown'
-import StyledButton from "../../../components/UI/Button";
+import StyledButton from "../../../components/UI/StyledComponents/StyledButton";
 
 import styled from 'styled-components'
-
-const StyledCard = styled(Card)`
-    margin-bottom: 20px;
-`
 
 const StyledText = styled.span`
     font-style: italic
@@ -25,10 +21,9 @@ const StyledDropdown = styled(Dropdown)`
     top: 5px;
 `
 
-
 const Post = (props) => {
     return (
-        <StyledCard bg={"dark"} text={"white"}>
+        <Card bg={"dark"} text={"white"}>
             <Card.Header as={"h5"}>
                <StyledText>{props.author}</StyledText>
                     <StyledDropdown>
@@ -61,7 +56,7 @@ const Post = (props) => {
                     {props.date}
                 </StyledText>
             </Card.Footer>
-        </StyledCard>
+        </Card>
     )
 }
 
