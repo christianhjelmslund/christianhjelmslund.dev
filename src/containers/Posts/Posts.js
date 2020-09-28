@@ -8,7 +8,7 @@ import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
 
 import styled from 'styled-components'
-import StyledButton from "../../components/UI/Button";
+import StyledButton from "../../components/UI/StyledComponents/StyledButton";
 
 const StyledInput = styled.input`
       font: inherit;
@@ -70,51 +70,51 @@ export const Posts = props => {
         const postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
         const postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
         return (
-            <Container style={{width: "80%"}} fluid={true}>
-                <Row>
-                    <Col xs={"2"}>
-                        <Card bg={"dark"} text={"white"}>
-                            <StyledInput
-                                placeholder={"Search by title"}
-                                onChange={event =>
-                                    filterPostByTitle(event.target.value, posts)
-                                }>
-                            </StyledInput>
-                            <br/>
-                            <p style={{
-                                margin: "0px auto",
-                                width: "80%"
-                            }}>At the moment you can filter the posts based on the title</p>
-                            <br/>
-                            <div style={{
-                                display: "block",
-                                margin: "10px auto",
-                                width: "80%",
-                            }}>
-                            {[...categories].map(category => {
-                                return (
-                                    <StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
-                            }
-                            </div>
-                            <Button style={{
-                                margin: "10px auto",
-                                width: "80%",}} variant="danger" onClick={() =>
+                <Container style={{width: "80%"}} fluid={true} >
+                    <Row>
+                        <Col xs={"2"}>
+                            <Card bg={"dark"} text={"white"}>
+                                <StyledInput
+                                    placeholder={"Search by title"}
+                                    onChange={event =>
+                                        filterPostByTitle(event.target.value, posts)
+                                    }>
+                                </StyledInput>
+                                <br/>
+                                <p style={{
+                                    margin: "0px auto",
+                                    width: "80%"
+                                }}>At the moment you can filter the posts based on the title</p>
+                                <br/>
+                                <div style={{
+                                    display: "block",
+                                    margin: "10px auto",
+                                    width: "80%",
+                                }}>
+                                    {[...categories].map(category => {
+                                        return (
+                                            <StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
+                                    }
+                                </div>
+                                <Button style={{
+                                    margin: "10px auto",
+                                    width: "80%",}} variant="danger" onClick={() =>
                                     setFilteredPosts(null)
                                 }>Reset</Button>
-                        </Card>
-                    </Col>
+                            </Card>
+                        </Col>
 
-                    <Col>
-                        {postsLeft}
-                    </Col>
+                        <Col>
+                            {postsLeft}
+                        </Col>
 
-                    <Col>
-                        {postsRight}
-                    </Col>
+                        <Col>
+                            {postsRight}
+                        </Col>
 
-                    <Col xs={"2"}></Col>
-                </Row>
-            </Container>
+                        <Col xs={"2"}></Col>
+                    </Row>
+                </Container>
         )
 }
 

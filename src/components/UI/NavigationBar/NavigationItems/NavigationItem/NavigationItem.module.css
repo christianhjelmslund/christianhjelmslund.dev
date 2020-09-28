@@ -19,8 +19,8 @@
 
 .NavigationItem a:hover,
 .NavigationItem a.active{
-    border-bottom: 4px solid white;
-    color: white;
+    border-bottom: 4px solid var(--custom_cyan);;
+    color: var(--custom_cyan);
 }
 
 /*@media (max-width: 500px) { !* for mobile - haven't been implemented *!*/
