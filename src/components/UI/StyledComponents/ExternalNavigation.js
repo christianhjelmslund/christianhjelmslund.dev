@@ -4,11 +4,10 @@ const ExternalNavigation = props => (
     <img style={{
         cursor: "pointer",
         width: "64px",
-        height: "64px"
+        height: "64px",
     }} src={props.src} alt={props.alt} onClick={() =>
         window.open(props.link)}>
     </img>
 )
-
 
 export default ExternalNavigation

@@ -6,7 +6,7 @@ const StyledTitle = styled.div`
         color: white;
         font-size: xxx-large;
         font-weight: bold;
-        background-color: rgba(0, 0, 0, 0.75);
+        background-color: rgba(0, 0, 0, 0.85);
         padding: 20px;
         border-radius: 10px;
 `
