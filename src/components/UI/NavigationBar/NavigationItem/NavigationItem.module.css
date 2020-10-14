@@ -1,0 +1,25 @@
+.NavigationItem {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+}
+
+.NavigationItem a { /* when it isn't active */
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    padding: 16px 20px; /* 16 px top and bottom, 10 px left and right*/
+    border-bottom: 4px solid transparent;
+    font-size: larger;
+
+}
+
+.NavigationItem a:hover,
+.NavigationItem a.active{
+    /*border-bottom: 4px solid var(--custom_cyan);;*/
+    color: var(--custom_dark_blue);
+}
