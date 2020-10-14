@@ -4,7 +4,7 @@ import {configure, shallow} from "enzyme"
 import Adapter from "enzyme-adapter-react-16"
 
 import NavigationItems from "../../components/UI/NavigationBar/NavigationItems/NavigationItems";
-import NavigationItem from "../../components/UI/NavigationBar/NavigationItems/NavigationItem/NavigationItem";
+import NavigationItem from "../../components/UI/NavigationBar/NavigationItem/NavigationItem";
 
 configure({adapter: new Adapter()})
 
