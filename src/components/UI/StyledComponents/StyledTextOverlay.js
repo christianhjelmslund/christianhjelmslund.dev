@@ -6,7 +6,7 @@ const StyledTitle = styled.div`
         color: white;
         font-size: xxx-large;
         font-weight: bold;
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(0, 0, 0, 0.75);
         padding: 20px;
         border-radius: 10px;
 `
@@ -19,7 +19,7 @@ const StyledContent = styled.div`
 
 const StyledTextOverlay = (props) => (
     <div style={{
-        margin: "5% 25%"
+        margin: "5% 25%" // if on phone, then change the margin!
     }}>
         <StyledTitle>
             {props.title}

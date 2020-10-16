@@ -48,9 +48,9 @@ const Post = (props) => {
                     flexWrap: "wrap",
                     gap: "12px"
                 }}>
-                    {props.categories.map(category => {
+                    {props.categories ? props.categories.map(category => {
                         return (<StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => props.filter(category)}/>)
-                    })}
+                    }):null}
                 </flex-gap>
                 <StyledText>
                     {props.date}

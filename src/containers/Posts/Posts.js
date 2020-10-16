@@ -53,8 +53,10 @@ export const Posts = props => {
     let categories = new Set([])
     if (props.posts) {
         posts = props.posts.map(post => {
-            for (let i = 0; i < post.category.length; i++){
-                categories.add(post.category[i])
+            if (post.category) {
+                for (let i = 0; i < post.category.length; i++){
+                    categories.add(post.category[i])
+                }
             }
             return <Post
                 key={post.id}
@@ -63,7 +65,7 @@ export const Posts = props => {
                 author={post.author}
                 content={post.content}
                 popularity={post.popularity}
-                categories={post.category}
+                category={post.category}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
             }).reverse()
         }
