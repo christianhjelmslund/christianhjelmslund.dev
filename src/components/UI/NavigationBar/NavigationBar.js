@@ -13,7 +13,7 @@ const NavigationBar = () => {
     return (
         <Navbar variant="dark" expand="lg" style={{backgroundColor: "black"}}>
             <Navbar.Brand>
-                <NavigationItem exact link="/">christianhjelmslund.dev</NavigationItem>
+                <NavigationItem exact link="/">christianhjelmslund</NavigationItem>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -23,7 +23,7 @@ const NavigationBar = () => {
                 </Nav>
             </Navbar.Collapse>
             <Navbar.Collapse className="justify-content-end">
-                <Nav>
+                <Nav >
                     <ExternalNavigation src={GithubIcon} alt={"Github"}
                                         link={"https://github.com/christianhjelmslund"}/>
                     <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}

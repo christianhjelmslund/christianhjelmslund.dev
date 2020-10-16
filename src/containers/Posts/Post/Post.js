@@ -26,14 +26,15 @@ const Post = (props) => {
         <Card bg={"dark"} text={"white"}>
             <Card.Header as={"h5"}>
                <StyledText>{props.author}</StyledText>
-                    <StyledDropdown>
-                        <StyledToggle variant="custom_dark" id="dropdown-basic" size="sm">
-                            ...
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Test</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </StyledToggle>
-                    </StyledDropdown>
+                    {/*NOT NEEDED FOR NOW*/}
+                    {/*<StyledDropdown>*/}
+                    {/*    <StyledToggle variant="custom_dark" id="dropdown-basic" size="sm">*/}
+                    {/*        ...*/}
+                    {/*        <Dropdown.Menu>*/}
+                    {/*            <Dropdown.Item href="#/action-1">Test</Dropdown.Item>*/}
+                    {/*        </Dropdown.Menu>*/}
+                    {/*    </StyledToggle>*/}
+                    {/*</StyledDropdown>*/}
             </Card.Header>
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
@@ -48,9 +49,9 @@ const Post = (props) => {
                     flexWrap: "wrap",
                     gap: "12px"
                 }}>
-                    {props.categories.map(category => {
+                    {props.category ? props.category.map(category => {
                         return (<StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => props.filter(category)}/>)
-                    })}
+                    }):null}
                 </flex-gap>
                 <StyledText>
                     {props.date}

@@ -42,7 +42,7 @@ export const Posts = props => {
     }
 
     const filterPostsByCategory = (category, posts) => {
-        setFilteredPosts(posts.filter(post => post.props.categories.includes(category)))
+        setFilteredPosts(posts.filter(post => post.props.category.includes(category)))
     }
 
     useEffect(() => {
@@ -53,17 +53,20 @@ export const Posts = props => {
     let categories = new Set([])
     if (props.posts) {
         posts = props.posts.map(post => {
-            for (let i = 0; i < post.category.length; i++){
-                categories.add(post.category[i])
+            if (post.category) {
+                for (let i = 0; i < post.category.length; i++){
+                    categories.add(post.category[i])
+                }
             }
             return <Post
+                id={post.id}
                 key={post.id}
                 date={post.date}
                 title={post.title}
                 author={post.author}
                 content={post.content}
                 popularity={post.popularity}
-                categories={post.category}
+                category={post.category}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
             }).reverse()
         }
@@ -75,6 +78,7 @@ export const Posts = props => {
                         <Col xs={"2"}>
                             <Card bg={"dark"} text={"white"}>
                                 <StyledInput
+                                    id={"styledInput"}
                                     placeholder={"Search by title"}
                                     onChange={event =>
                                         filterPostByTitle(event.target.value, posts)
@@ -93,13 +97,14 @@ export const Posts = props => {
                                 }}>
                                     {[...categories].map(category => {
                                         return (
-                                            <StyledButton key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
+                                            <StyledButton id={category} key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
                                     }
                                 </div>
-                                <Button style={{
+                                <Button id={"reset"} style={{
                                     margin: "10px auto",
-                                    width: "80%",}} variant="danger" onClick={() =>
+                                    width: "80%",}} variant="danger" onClick={() => {
                                     setFilteredPosts(null)
+                                }
                                 }>Reset</Button>
                             </Card>
                         </Col>

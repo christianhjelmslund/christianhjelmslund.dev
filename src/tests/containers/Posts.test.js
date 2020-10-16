@@ -30,23 +30,41 @@ describe('<Posts/>', () => {
         expect(wrapper.find(Post)).toHaveLength(5)
     });
 
+    it('it should filter out posts based on title <Post/>', function () {
+        wrapper.setProps({posts: [
+                {
+                    author: "Christian Hjelmslund",
+                    category: ["software"],
+                    content: "😃",
+                    title: "qqq",
+                    id: "post1"
+                },
+                {
+                    author: "Christian Hjelmslund",
+                    category: ["testing"],
+                    content: "😃",
+                    title: "aaa",
+                    id: "post2"
+                }]
+        })
 
+        expect(wrapper.find('#post1')).toHaveLength(1)
+        expect(wrapper.find('#post2')).toHaveLength(1)
+        wrapper.find('#styledInput').simulate('change', {target: {value: 'aa'}})
+        expect(wrapper.find('#post1')).toHaveLength(0)
+        expect(wrapper.find('#post2')).toHaveLength(1)
+        wrapper.find('#styledInput').simulate('change', {target: {value: 'qq'}})
+        expect(wrapper.find('#post1')).toHaveLength(1)
+        expect(wrapper.find('#post2')).toHaveLength(0)
+        wrapper.find('#styledInput').simulate('change', {target: {value: ''}})
+        expect(wrapper.find('#post1')).toHaveLength(1)
+        expect(wrapper.find('#post2')).toHaveLength(1)
+        wrapper.find('#styledInput').simulate('change', {target: {value: 'bb'}})
+        expect(wrapper.find('#post1')).toHaveLength(0)
+        expect(wrapper.find('#post2')).toHaveLength(0)
 
-    it('it should have a specific <Post/>', function () {
-        wrapper.setProps({posts: [{},{
-                title: "title",
-                author: "author",
-                content: "this is content",
-                popularity: 23,
-                category: ["tech", "business"]
-            },{},{},{}]})
-        expect(wrapper.contains(<Post title={"title"}
-                                      author={"author"}
-                                      content={"this is content"}
-                                      popularity={23}
-                                      categories={["tech", "business"]}
-                                      date={undefined}/>)).toEqual(true)
-    });
-
-
+        wrapper.find('#reset').simulate('click')
+        expect(wrapper.find('#post1')).toHaveLength(1)
+        expect(wrapper.find('#post2')).toHaveLength(1)
+    })
 })

@@ -3,6 +3,7 @@ import BackgroundImage from "../../assets/images/background.jpg"
 import StyledTextOverlay from "../UI/StyledComponents/StyledTextOverlay";
 import Post from "../../containers/Posts/Post/Post";
 import styled from "styled-components";
+import NavigationBar from "../UI/NavigationBar/NavigationBar";
 
 const StyledText = styled.p`
         color: black;
@@ -17,7 +18,6 @@ const Home = () => {
             <div style={{
                 position: "relative",
                 marginTop: "0%",
-                height: "800px",
                 overflow: "auto",
                 backgroundImage: `url(${BackgroundImage})`,
                 backgroundPosition: 'center',
