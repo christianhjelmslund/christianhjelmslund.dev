@@ -27,7 +27,6 @@ describe("<withErrorHandler/>", function () {
         const Mock_ErrorHandler = withErrorHandler(React.Fragment, () =>
             mock_hook(true));
         const wrapper = shallow(<Mock_ErrorHandler/>);
-
         expect(wrapper.find(Alert)).toHaveLength(1)
     })
 })
