@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {Row, Col, Container, Card, Button} from "react-bootstrap"
 import * as actions from "../../redux/actions/actions"
@@ -13,8 +13,7 @@ import StyledButton from "../../components/UI/StyledComponents/StyledButton";
 const StyledInput = styled.input`
       font: inherit;
       margin: 0px auto;
-      width: 80%;
-      margin-top: 20px;
+      width: 100%;
       border: 1px solid #ccc;
       padding: 0.15rem 0.25rem;
       border-radius: 10px;
@@ -70,57 +69,64 @@ export const Posts = props => {
                 filter={(category) => filterPostsByCategory(category, posts)}/>
             }).reverse()
         }
-        const postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
-        const postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
-        return (
-                <Container style={{width: "80%"}} fluid={true} >
-                    <Row>
-                        <Col xs={"2"}>
-                            <Card bg={"dark"} text={"white"}>
-                                <StyledInput
-                                    id={"styledInput"}
-                                    placeholder={"Search by title"}
-                                    onChange={event =>
-                                        filterPostByTitle(event.target.value, posts)
-                                    }>
-                                </StyledInput>
-                                <br/>
-                                <p style={{
-                                    margin: "0px auto",
-                                    width: "80%"
-                                }}>At the moment you can filter the posts based on the title</p>
-                                <br/>
-                                <div style={{
-                                    display: "block",
-                                    margin: "10px auto",
-                                    width: "80%",
-                                }}>
-                                    {[...categories].map(category => {
-                                        return (
-                                            <StyledButton id={category} key={category} variant="custom_dark" buttonTitle={category} clicked={() => filterPostsByCategory(category, posts)}/>)})
-                                    }
-                                </div>
-                                <Button id={"reset"} style={{
-                                    margin: "10px auto",
-                                    width: "80%",}} variant="danger" onClick={() => {
-                                    setFilteredPosts(null)
-                                }
-                                }>Reset</Button>
-                            </Card>
-                        </Col>
+    let postsLeft = []
+    let postsRight = []
+    let postView
+    const filterView = <Card bg={"dark"} text={"white"}>
+        <Container style={{width: "90%", padding: "20px"}} fluid={true}>
+            <Row>
+                <StyledInput
+                    id={"styledInput"}
+                    placeholder={"Search by title"}
+                    onChange={event =>
+                        filterPostByTitle(event.target.value, posts)
+                    }>
+                </StyledInput>
+            </Row>
+            <Row style={{paddingTop: "10px"}}>
+                <p> At the moment you can filter the posts based on the title </p>
+            </Row>
+            <Row style={{paddingTop: "10px"}}>
+                {[...categories].map(category => {
+                    return (<StyledButton id={category} key={category} variant="custom_dark" buttonTitle={category}
+                                          clicked={() => filterPostsByCategory(category, posts)}/>)})
+                }
+            </Row>
+            <Row style={{paddingTop: "10px"}}>
+                <Button id={"reset"} style={{width: "100%",
+                    cursor:'pointer'}} variant="danger" onClick={() => {
+                    setFilteredPosts(null)
+                }}>Reset
+                </Button>
+            </Row>
+        </Container>
+    </Card>
 
-                        <Col>
-                            {postsLeft}
-                        </Col>
 
-                        <Col>
-                            {postsRight}
-                        </Col>
+    if (window.screen.width >= 1280) {
+        postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
+        postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
+        postView = <Fragment>
+            <Col xs={"2"}>{filterView}</Col>
+            <Col>{postsLeft}</Col>
+            <Col>{postsRight}</Col>
+            <Col xs={"2"}/>
+        </Fragment>
+    } else {
+        postView = <Col>
+            {/*{filterView}*/}
+            {posts}
+        </Col>
+    }
 
-                        <Col xs={"2"}></Col>
-                    </Row>
-                </Container>
-        )
+    return (
+        <Container style={{width: "100%", marginTop: "25px"}} fluid={true}>
+            <Row>
+                {postView}
+            </Row>
+        </Container>
+
+    )
 }
 
 

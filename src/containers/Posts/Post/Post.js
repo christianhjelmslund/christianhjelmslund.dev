@@ -1,7 +1,7 @@
 import React from "react";
 
 import Card from 'react-bootstrap/Card'
-import Dropdown from 'react-bootstrap/Dropdown'
+// import Dropdown from 'react-bootstrap/Dropdown'
 import StyledButton from "../../../components/UI/StyledComponents/StyledButton";
 
 import styled from 'styled-components'
@@ -9,21 +9,21 @@ import styled from 'styled-components'
 const StyledText = styled.span`
     font-style: italic
 `
-const StyledToggle = styled(Dropdown.Toggle)`
-    :after {
-        display: none;
-    }
-`;
-
-const StyledDropdown = styled(Dropdown)`
-    position: absolute;
-    right: 10px;
-    top: 5px;
-`
+// const StyledToggle = styled(Dropdown.Toggle)`
+//     :after {
+//         display: none;
+//     }
+// `;
+//
+// const StyledDropdown = styled(Dropdown)`
+//     position: absolute;
+//     right: 10px;
+//     top: 5px;
+// `
 
 const Post = (props) => {
     return (
-        <Card bg={"dark"} text={"white"}>
+        <Card bg={"dark"} text={"white"} style={{marginBottom: "20px"}}>
             <Card.Header as={"h5"}>
                <StyledText>{props.author}</StyledText>
                     {/*NOT NEEDED FOR NOW*/}

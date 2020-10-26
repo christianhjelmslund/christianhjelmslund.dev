@@ -6,7 +6,7 @@ import styles from "./NavigationItem.module.css"
 const NavigationItem = props => {
     return (
         <li className={styles.NavigationItem}>
-            <NavLink to={props.link} activeClassName={styles.active} exact={props.exact}>
+            <NavLink onClick={props.clicked} to={props.link} activeClassName={styles.active} exact={props.exact}>
                 {props.children}
             </NavLink>
         </li>

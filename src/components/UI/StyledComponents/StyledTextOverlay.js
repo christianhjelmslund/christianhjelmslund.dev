@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledTitle = styled.div`
         color: white;
-        font-size: xxx-large;
+        font-size: 48px;
         font-weight: bold;
         background-color: rgba(0, 0, 0, 0.75);
         padding: 20px;
@@ -13,26 +13,29 @@ const StyledTitle = styled.div`
 
 const StyledContent = styled.div`
         color: white;
-        font-size: large;
+        font-size: 16px;
         font-weight: bold;
 `
 
-const StyledTextOverlay = (props) => (
-    <div style={{
-        margin: "5% 25%" // if on phone, then change the margin!
+const StyledTextOverlay = (props) => {
+    const margin = window.screen.width >= 1280 ? "5% 25%" : "5% 5%"
+    const titleFontSize = window.screen.width >= 1280 ? "64px" : "32px"
+    const contentFontSize = window.screen.width >= 1280 ? "18px" : "16px"
+    return (<div style={{
+        margin: margin // if on phone, then change the margin!
     }}>
-        <StyledTitle>
+        <StyledTitle style={{fontSize:titleFontSize}}>
             {props.title}
-            <StyledContent>
+            <StyledContent style={{fontSize:contentFontSize}}>
                 {props.content}
             </StyledContent>
         </StyledTitle>
-        <div style={{textAlign: "center", marginTop: "50px"}}>
+        <div style={{textAlign: "center", marginTop: "30px"}}>
             <Button variant={"danger"}>
-                READ MORE
+                Let's Go!
             </Button>
         </div>
-    </div>
-)
+    </div>)
+}
 
 export default StyledTextOverlay

@@ -9,7 +9,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import postsReducer from "./redux/reducers/postsReducer";
 
-const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+const composeEnhancers =
+    process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ :
+        compose;
 
 const rootReducer = combineReducers(({
     posts: postsReducer,
