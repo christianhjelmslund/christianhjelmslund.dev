@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import StyledTextOverlay from "../UI/StyledComponents/StyledTextOverlay";
 import styled from "styled-components";
+import BackgroundImage from "../../assets/images/background.svg"
 
 const StyledText = styled.p`
         color: black;
@@ -16,10 +17,10 @@ const Home = () => {
                 position: "relative",
                 marginTop: "0%",
                 overflow: "auto",
-                // backgroundImage: `url(${BackgroundImage})`,
-                // backgroundPosition: 'center',
-                // backgroundSize: 'cover',
-                // backgroundRepeat: 'no-repeat'
+                backgroundImage: `url(${BackgroundImage})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
                 // WILL BE FIXED WHEN SOME CACHING IS IMPLEMENTED
             }}>
                 <StyledTextOverlay
