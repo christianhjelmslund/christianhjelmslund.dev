@@ -7,6 +7,7 @@ import useHttpErrorHandler from "../../hooks/httpErrorHandling"
 import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
 
+import Spinner from "../../components/UI/Spinner/Spinner";
 import styled from 'styled-components'
 import StyledButton from "../../components/UI/StyledComponents/StyledButton";
 
@@ -53,7 +54,7 @@ export const Posts = props => {
     if (props.posts) {
         posts = props.posts.map(post => {
             if (post.category) {
-                for (let i = 0; i < post.category.length; i++){
+                for (let i = 0; i < post.category.length; i++) {
                     categories.add(post.category[i])
                 }
             }
@@ -67,12 +68,16 @@ export const Posts = props => {
                 popularity={post.popularity}
                 category={post.category}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
-            }).reverse()
-        }
+        }).reverse()
+    }
+
+
     let postsLeft = []
     let postsRight = []
     let postView
-    const filterView = <Card bg={"dark"} text={"white"}>
+    const filterView =
+
+        <Card bg={"dark"} text={"white"}>
         <Container style={{width: "90%", padding: "20px"}} fluid={true}>
             <Row>
                 <StyledInput
@@ -87,14 +92,18 @@ export const Posts = props => {
                 <p> At the moment you can filter the posts based on the title </p>
             </Row>
             <Row style={{paddingTop: "10px"}}>
-                {[...categories].map(category => {
+                {  categories.size === 0 ? <Spinner/> :
+                [...categories].map(category => {
                     return (<StyledButton id={category} key={category} variant="custom_dark" buttonTitle={category}
-                                          clicked={() => filterPostsByCategory(category, posts)}/>)})
+                                          clicked={() => filterPostsByCategory(category, posts)}/>)
+                })
                 }
             </Row>
             <Row style={{paddingTop: "10px"}}>
-                <Button id={"reset"} style={{width: "100%",
-                    cursor:'pointer'}} variant="danger" onClick={() => {
+                <Button id={"reset"} style={{
+                    width: "100%",
+                    cursor: 'pointer'
+                }} variant="danger" onClick={() => {
                     setFilteredPosts(null)
                 }}>Reset
                 </Button>
@@ -102,22 +111,35 @@ export const Posts = props => {
         </Container>
     </Card>
 
-
     if (window.screen.width >= 1280) {
         postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
         postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
-        postView = <Fragment>
-            <Col xs={"2"}>{filterView}</Col>
-            <Col>{postsLeft}</Col>
-            <Col>{postsRight}</Col>
-            <Col xs={"2"}/>
-        </Fragment>
+        if (posts.length === 0) {
+            postView =
+                <Fragment>
+                    <Col xs={"2"}>{filterView}</Col>
+                    <Spinner/>
+                    <Col xs={"2"}/>
+                </Fragment>
+        } else {
+            postView = <Fragment>
+                <Col xs={"2"}>{filterView}</Col>
+                <Col>{postsLeft}</Col>
+                <Col>{postsRight}</Col>
+                <Col xs={"2"}/>
+            </Fragment>
+        }
     } else {
-        postView = <Col>
-            {/*{filterView}*/}
-            {posts}
-        </Col>
+        if (posts.length === 0) {
+            postView = <Spinner/>
+        } else {
+            postView = <Col>
+                {/*{filterView}*/}
+                {posts}
+            </Col>
+        }
     }
+
 
     return (
         <Container style={{width: "100%", marginTop: "25px"}} fluid={true}>
