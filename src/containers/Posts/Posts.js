@@ -2,7 +2,6 @@ import React, {Fragment, useEffect, useState} from "react";
 import {connect} from "react-redux";
 import {Row, Col, Container, Card, Button} from "react-bootstrap"
 import * as actions from "../../redux/actions/actions"
-
 import useHttpErrorHandler from "../../hooks/httpErrorHandling"
 import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
@@ -10,13 +9,14 @@ import withErrorHandler from "../../hoc/withErrorHandler"
 import Spinner from "../../components/UI/Spinner/Spinner";
 import styled from 'styled-components'
 import StyledButton from "../../components/UI/StyledComponents/StyledButton";
+import BackgroundImage from "../../assets/images/background.svg";
 
 const StyledInput = styled.input`
       font: inherit;
-      margin: 0px auto;
+      margin: 10px auto;
       width: 100%;
       border: 1px solid #ccc;
-      padding: 0.15rem 0.25rem;
+      padding: 0.3rem 0.3rem;
       border-radius: 10px;
       &:focus {
         outline: none;
@@ -71,12 +71,10 @@ export const Posts = props => {
         }).reverse()
     }
 
-
     let postsLeft = []
     let postsRight = []
     let postView
     const filterView =
-
         <Card bg={"dark"} text={"white"}>
         <Container style={{width: "90%", padding: "20px"}} fluid={true}>
             <Row>
@@ -142,11 +140,22 @@ export const Posts = props => {
 
 
     return (
+        <div style={{
+            position: "relative",
+            marginTop: "0%",
+            overflow: "auto",
+            backgroundImage: `url(${BackgroundImage})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+            // WILL BE FIXED WHEN SOME CACHING IS IMPLEMENTED
+        }}>
         <Container style={{width: "100%", marginTop: "25px"}} fluid={true}>
             <Row>
                 {postView}
             </Row>
         </Container>
+        </div>
 
     )
 }
