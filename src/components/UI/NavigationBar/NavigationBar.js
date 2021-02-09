@@ -18,17 +18,16 @@ const NavigationBar = () => {
     const navBarBody =
         (<React.Fragment>
             <Navbar.Brand>
-                <NavigationItem clicked={() => handleNavCollapse(true)} exact link="/">christianhjelmslund</NavigationItem>
+                <NavigationItem clicked={() => handleNavCollapse(true)} exact link="/">Home</NavigationItem>
             </Navbar.Brand>
             <Navbar.Toggle onClick={() => handleNavCollapse(!isNavCollapsed)} aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto" >
-                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/posts">Posts</NavigationItem>
-                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/investing">Investing</NavigationItem>
-                </Nav>
+                <Nav className="mr-auto" />
                 <Nav>
                     <Container style={{width: "100%"}} fluid={true}>
                         <Row>
+                            <NavigationItem clicked={() => handleNavCollapse(true)} link="/investing">Investing</NavigationItem>
+                            <NavigationItem clicked={() => handleNavCollapse(true)} link="/about-me">About me</NavigationItem>
                             <ExternalNavigation src={GithubIcon} alt={"Github"}
                                                 link={"https://github.com/christianhjelmslund"}/>
                             <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}
