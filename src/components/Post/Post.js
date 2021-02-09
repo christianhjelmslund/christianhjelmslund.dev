@@ -1,13 +1,25 @@
 import React from "react";
 
 import Card from 'react-bootstrap/Card'
-import StyledButton from "../../../components/UI/StyledComponents/StyledButton";
+import StyledButton from "../UI/StyledComponents/StyledButton";
 import zlatan from "./zlatan.jpg"
 
+import { Route } from 'react-router-dom'
+
 const Post = (props) => {
-    return (
-        <Card text={"white"} style={{marginBottom: "20px", backgroundColor: "black"}}>
-            <Card.Img variant="top" src={zlatan} rounded />
+    console.log(props.title)
+    return (<Route render={({ history }) => (
+        <Card text={"white"} style={{marginBottom: "20px", backgroundColor: "black", cursor: "pointer"}}
+            onClick={() => {
+                history.push({
+                    pathname: "/post/"+props.id,
+                    state: {
+                        title: props.title,
+                        content: props.content
+                    }
+                })
+            }}>
+            <Card.Img variant="top" src={zlatan} />
             <Card.Body>
                 <Card.Title>{props.title}
                     <br/>
@@ -28,7 +40,7 @@ const Post = (props) => {
                     }):null}
                 </flex-gap>
             </Card.Footer>
-        </Card>
+        </Card>)}/>
     )
 }
 

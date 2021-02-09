@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import {Row, Col, Container, Card, Button} from "react-bootstrap"
 import * as actions from "../../redux/actions/actions"
 import useHttpErrorHandler from "../../hooks/httpErrorHandling"
-import Post from "./Post/Post"
 import withErrorHandler from "../../hoc/withErrorHandler"
 
+import Post from "../../components/Post/Post"
 import Spinner from "../../components/UI/Spinner/Spinner";
 import styled from 'styled-components'
 import StyledButton from "../../components/UI/StyledComponents/StyledButton";
