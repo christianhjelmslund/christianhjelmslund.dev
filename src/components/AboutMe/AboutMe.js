@@ -10,7 +10,7 @@ const StyledText = styled.p`
         padding: 50px;
         text-align: center;
 `
-const Home = () => {
+const AboutMe = () => {
     return (
         <Fragment>
             <div style={{
@@ -50,4 +50,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default AboutMe
