@@ -44,7 +44,6 @@ export const Posts = props => {
     const filterPostsByCategory = (category, posts) => {
         setFilteredPosts(posts.filter(post => post.props.category.includes(category)))
     }
-
     useEffect(() => {
         onFetchPosts()
     }, [onFetchPosts])

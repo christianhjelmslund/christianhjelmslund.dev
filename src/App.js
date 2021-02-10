@@ -13,11 +13,11 @@ const App = () => {
 
     let routes = (
         <Switch>
-            <Route path={"/"} exact component={Posts}/>
+            <Route path={"/posts"} exact component={Posts}/>
             <Route path={"/about-me"} component={AboutMe}/>
             <Route path={"/investing"} component={() => <Button variant="primary">Primary</Button>}/>
-            <Route path={"/post/:userId"} component={PostPage}/>
-            <Redirect to={"/"}/>
+            <Route path={"/posts/:postId"} component={PostPage}/>
+            <Redirect to={"/posts"}/>
         </Switch>
     )
 

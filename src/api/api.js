@@ -7,3 +7,4 @@ const instance = axios.create({
 export default instance
 
 export { getAllPosts } from "./requests/getAllPosts"
+export { getSpecificPost } from "./requests/getSpecificPost"
