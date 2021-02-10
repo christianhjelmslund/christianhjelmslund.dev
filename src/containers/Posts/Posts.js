@@ -9,7 +9,6 @@ import Post from "../../components/Post/Post"
 import Spinner from "../../components/UI/Spinner/Spinner";
 import styled from 'styled-components'
 import StyledButton from "../../components/UI/StyledComponents/StyledButton";
-import BackgroundImage from "../../assets/images/background.svg";
 
 const StyledInput = styled.input`
       font: inherit;
@@ -139,23 +138,13 @@ export const Posts = props => {
 
 
     return (
-        <div style={{
-            position: "relative",
-            marginTop: "0%",
-            overflow: "auto",
-            backgroundImage: `url(${BackgroundImage})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
-            // WILL BE FIXED WHEN SOME CACHING IS IMPLEMENTED
-        }}>
-        <Container style={{width: "100%", marginTop: "25px"}} fluid={true}>
-            <Row>
-                {postView}
-            </Row>
-        </Container>
-        </div>
-
+        <React.Fragment>
+            <Container style={{width: "100%", marginTop: "25px"}} fluid={true}>
+                <Row>
+                    {postView}
+                </Row>
+            </Container>
+        </React.Fragment>
     )
 }
 

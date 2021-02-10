@@ -1,7 +1,6 @@
 import React, {Fragment} from "react";
 import StyledTextOverlay from "../UI/StyledComponents/StyledTextOverlay";
 import styled from "styled-components";
-import BackgroundImage from "../../assets/images/background.svg"
 
 const StyledText = styled.p`
         color: black;
@@ -17,11 +16,9 @@ const AboutMe = () => {
                 position: "relative",
                 marginTop: "0%",
                 overflow: "auto",
-                backgroundImage: `url(${BackgroundImage})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
-                // WILL BE FIXED WHEN SOME CACHING IS IMPLEMENTED
             }}>
                 <StyledTextOverlay
                     title={"About my site"}
@@ -32,20 +29,15 @@ const AboutMe = () => {
                     "Lastly, the target audience is people who are interested in tech or at least curious about it. Some of the topics will be aimed for people who already know how to code, build software and in general have a high knowledge within the domain. However, as a future engineer\n" +
                     "it is crucial to be able to explain rocket science (yeah, relax, I'm not that cool to do rocket science, but you get the gist) to non-technical people, which is something I can learn here.\n"}>
                 </StyledTextOverlay>
+                <div style={{
+                    height: "100%",
+                    backgroundColor: "white"
+                }}>
+                    <StyledText>
+                        FEATURED BLOG POST
+                    </StyledText>
+                </div>
             </div>
-            <div style={{
-                height: "100%",
-                backgroundColor: "white"
-            }}>
-                <StyledText>
-                    FEATURED BLOG POST
-                </StyledText>
-            </div>
-            {/*<div style={{*/}
-            {/*    margin: "2.5% 10%"*/}
-            {/*}}>*/}
-            {/*    /!*{INSERT FEATURED POST}*!/*/}
-            {/*</div>*/}
         </Fragment>
     )
 }
