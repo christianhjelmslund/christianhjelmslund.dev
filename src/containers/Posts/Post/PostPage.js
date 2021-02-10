@@ -3,7 +3,6 @@ import React, {useEffect} from "react";
 import Post from "../../../components/Post/Post";
 import {Col, Row} from "react-bootstrap";
 
-import BackgroundImage from "../../../assets/images/background.svg";
 import * as actions from "../../../redux/actions/actions";
 import {connect} from "react-redux";
 
@@ -40,23 +39,13 @@ const PostPage = (props) => {
     }
 
     return (
-        <div style={{
-            position: "relative",
-            marginTop: "0%",
-            overflow: "auto",
-            backgroundImage: `url(${BackgroundImage})`,
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
-        }}>
-            <Row  style={{marginTop: "25px"}}>
-                <Col/>
-                <Col xs={6}>
-                    {postView}
-                </Col>
-                <Col/>
-            </Row>
-        </div>
+        <Row style={{marginTop: "25px"}}>
+            <Col/>
+            <Col xs={6}>
+                {postView}
+            </Col>
+            <Col/>
+        </Row>
     )
 }
 
