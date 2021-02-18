@@ -32,14 +32,21 @@ const Post = (props) => {
     }
 
     return (<Route render={({ history }) => (
-        <Card text={"white"} style={{marginBottom: "20px", backgroundColor: "black", cursor: pointer}}
+        <Card text={"white"}
+              style={{marginBottom: "20px",
+                  backgroundColor: 'var(--custom_black)',
+                  cursor: pointer,
+                  borderRadius: "2%"
+              }}
             onClick={() => onClick(history)}>
-            <Card.Img variant="top" src={zlatan} />
             <Card.Body>
                 <Card.Title>{props.title}
                     <br/>
                     <span style={{fontSize:"small", color:"gray"}}>20/02/2020</span>
                 </Card.Title>
+                <Card.Img variant="top" src={zlatan} />
+                <br/>
+                <br/>
                 <Card.Text style={{
                     whiteSpace: "pre-wrap",
                 }}>

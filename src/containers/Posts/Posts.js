@@ -17,9 +17,12 @@ const StyledInput = styled.input`
       border: 1px solid #ccc;
       padding: 0.3rem 0.3rem;
       border-radius: 10px;
+      background: var(--custom_black);
+      color: white;
+      text-align: center;
       &:focus {
         outline: none;
-        border-bottom-color: #45a29e;
+        //border-bottom-color:var(--custom_black);
       }
 `
 
@@ -69,16 +72,18 @@ export const Posts = props => {
         }).reverse()
     }
 
-    let postsLeft = []
-    let postsRight = []
+    // let postsLeft = []
+    // let postsRight = []
     let postView
     const filterView =
-        <Card bg={"dark"} text={"white"}>
+        <Card text={"white"} style={{
+            backgroundColor: 'var(--custom_black)'
+        }}>
         <Container style={{width: "90%", padding: "20px"}} fluid={true}>
             <Row>
                 <StyledInput
                     id={"styledInput"}
-                    placeholder={"Search by title"}
+                    placeholder={"search by title"}
                     onChange={event =>
                         filterPostByTitle(event.target.value, posts)
                     }>
@@ -110,8 +115,6 @@ export const Posts = props => {
         </Container>
     </Card>
     if (window.screen.width >= 1280) { // TODO: Fix this phone hack
-        postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
-        postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
         if (props.loading) {
             postView =
                 <Fragment>
@@ -120,8 +123,8 @@ export const Posts = props => {
         } else if (posts.length > 0) {
             postView = <Fragment>
                 <Col xs={"2"}>{filterView}</Col>
-                <Col>{postsLeft}</Col>
-                <Col>{postsRight}</Col>
+                <Col>{filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)}</Col>
+                <Col>{filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)}</Col>
                 <Col xs={"2"}/>
             </Fragment>
         }
