@@ -15,10 +15,11 @@ const PostPage = (props) => {
 
     useEffect(() => {
         if (!props.location.post) {
-            const potentialPostId = props.match.params.postId
+            let potentialPostId;
+            potentialPostId = props.match.params["postId"];
             onFetchPost(potentialPostId)
         }
-    }, [onFetchPost, props.location.post, props.location.state, props.match.params.postId])
+    }, [onFetchPost, props.location.post, props.location.state, props.match.params])
 
     const post = props.location.post ? props.location.post : props.post
 

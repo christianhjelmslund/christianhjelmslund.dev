@@ -88,9 +88,12 @@ export const Posts = props => {
                 <p> At the moment you can filter the posts based on the title </p>
             </Row>
             <Row style={{paddingTop: "10px"}}>
-                {  categories.size === 0 ? <Spinner/> :
+                {  categories.size === 0 ? null :
                 [...categories].map(category => {
-                    return (<StyledButton id={category} key={category} variant="custom_dark" buttonTitle={category}
+                    return (<StyledButton id={category}
+                                          key={category}
+                                          variant="custom_dark"
+                                          buttonTitle={category}
                                           clicked={() => filterPostsByCategory(category, posts)}/>)
                 })
                 }
@@ -106,18 +109,15 @@ export const Posts = props => {
             </Row>
         </Container>
     </Card>
-
-    if (window.screen.width >= 1280) {
+    if (window.screen.width >= 1280) { // TODO: Fix this phone hack
         postsLeft = filteredPosts ? filteredPosts.slice(filteredPosts.length / 2) : posts.slice(posts.length / 2)
         postsRight = filteredPosts ? filteredPosts.slice(0, filteredPosts.length / 2) : posts.slice(0, posts.length / 2)
-        if (posts.length === 0) {
+        if (props.loading) {
             postView =
                 <Fragment>
-                    <Col xs={"2"}>{filterView}</Col>
                     <Spinner/>
-                    <Col xs={"2"}/>
                 </Fragment>
-        } else {
+        } else if (posts.length > 0) {
             postView = <Fragment>
                 <Col xs={"2"}>{filterView}</Col>
                 <Col>{postsLeft}</Col>
@@ -125,12 +125,13 @@ export const Posts = props => {
                 <Col xs={"2"}/>
             </Fragment>
         }
-    } else {
+    }
+    // TODO: Fix this phone hack
+    else {
         if (posts.length === 0) {
             postView = <Spinner/>
         } else {
             postView = <Col>
-                {/*{filterView}*/}
                 {posts}
             </Col>
         }
@@ -156,8 +157,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
         posts: state.posts.posts,
+        loading: state.posts.loading
     }
 }
 

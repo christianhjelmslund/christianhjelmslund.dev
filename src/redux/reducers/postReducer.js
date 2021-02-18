@@ -10,17 +10,17 @@ const postReducer = (state = initialState, action) => {
         case actionTypes.GET_POST_START:
             return {
                 ...state,
-                loading: true,
+                loading: true
             }
         case actionTypes.GET_POST_SUCCESS:
             return {
                 post: action.post,
-                loading: false,
+                loading: false
             }
         case actionTypes.GET_POST_ERROR:
             return {
                 ...state,
-                loading: false,
+                loading: false
             }
         default:
             return state

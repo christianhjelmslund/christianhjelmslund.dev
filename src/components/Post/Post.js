@@ -40,7 +40,9 @@ const Post = (props) => {
                     <br/>
                     <span style={{fontSize:"small", color:"gray"}}>20/02/2020</span>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text style={{
+                    whiteSpace: "pre-wrap",
+                }}>
                     {props.content}
                 </Card.Text>
             </Card.Body>
