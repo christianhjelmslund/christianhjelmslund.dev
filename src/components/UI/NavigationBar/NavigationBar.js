@@ -18,7 +18,7 @@ const NavigationBar = () => {
     const navBarBody =
         (<React.Fragment>
             <Navbar.Brand>
-                <NavigationItem clicked={() => handleNavCollapse(true)} exact link="/">Home</NavigationItem>
+                <NavigationItem clicked={() => handleNavCollapse(true)} exact link="/posts">Home</NavigationItem>
             </Navbar.Brand>
             <Navbar.Toggle onClick={() => handleNavCollapse(!isNavCollapsed)} aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -36,7 +36,6 @@ const NavigationBar = () => {
                                                 link={"https://www.facebook.com/ChristianHjelmslund/"}/>
                         </Row>
                     </Container>
-
                 </Nav>
             </Navbar.Collapse>
         </React.Fragment>)
