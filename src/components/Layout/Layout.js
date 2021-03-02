@@ -13,7 +13,8 @@ const Layout = props => {
                 backgroundImage: `url(${BackgroundImage})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                zIndex: "-1"
             }}/>
             <NavigationBar/>
             <main>{props.children}</main>

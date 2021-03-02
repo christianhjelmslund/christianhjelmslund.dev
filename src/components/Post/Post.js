@@ -49,6 +49,7 @@ const Post = (props) => {
                 <br/>
                 <Card.Text style={{
                     whiteSpace: "pre-wrap",
+                    fontSize: "x-large"
                 }}>
                     {props.content}
                 </Card.Text>

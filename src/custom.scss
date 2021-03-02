@@ -9,7 +9,11 @@ $theme-colors: (
 );
 
 
-
 // Import Bootstrap and its default variables
-
 @import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+}

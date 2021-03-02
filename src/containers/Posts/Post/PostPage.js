@@ -42,7 +42,7 @@ const PostPage = (props) => {
     return (
         <Row style={{marginTop: "25px"}}>
             <Col/>
-            <Col xs={6}>
+            <Col xs={8}>
                 {postView}
             </Col>
             <Col/>

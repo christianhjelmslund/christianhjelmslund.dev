@@ -4,6 +4,7 @@ import {Row, Col, Container, Card, Button} from "react-bootstrap"
 import * as actions from "../../redux/actions/actions"
 import useHttpErrorHandler from "../../hooks/httpErrorHandling"
 import withErrorHandler from "../../hoc/withErrorHandler"
+import windowResize from "../../hooks/windowResize"
 
 import Post from "../../components/Post/Post"
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -30,6 +31,7 @@ export const Posts = props => {
 
     const {onFetchPosts} = props
     const [filteredPosts, setFilteredPosts] = useState('')
+    const resize = windowResize();
 
     const filterPostByTitle = (title, posts) => {
         if (title === "") {
@@ -76,9 +78,7 @@ export const Posts = props => {
     // let postsRight = []
     let postView
     const filterView =
-        <Card text={"white"} style={{
-            backgroundColor: 'var(--custom_black)'
-        }}>
+        <Card text={"white"} style={{backgroundColor: 'var(--custom_black)'}}>
         <Container style={{width: "90%", padding: "20px"}} fluid={true}>
             <Row>
                 <StyledInput
@@ -114,7 +114,7 @@ export const Posts = props => {
             </Row>
         </Container>
     </Card>
-    if (window.screen.width >= 1280) { // TODO: Fix this phone hack
+    if (resize.width >= 1025) {
         if (props.loading) {
             postView =
                 <Fragment>
@@ -134,9 +134,9 @@ export const Posts = props => {
         if (posts.length === 0) {
             postView = <Spinner/>
         } else {
-            postView = <Col>
-                {posts}
-            </Col>
+            postView = <Fragment>
+               <Col style={{width: "90%"}}>{posts}</Col>
+            </Fragment>
         }
     }
 
