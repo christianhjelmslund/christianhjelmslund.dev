@@ -70,6 +70,9 @@ export const Posts = props => {
                 content={post.content}
                 popularity={post.popularity}
                 category={post.category}
+                image={post.image}
+                images={post.images}
+                codeblock={post.codeblocks}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
         }).reverse()
     }
@@ -160,7 +163,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         posts: state.posts.posts,
         loading: state.posts.loading
