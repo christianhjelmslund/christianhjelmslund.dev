@@ -1,6 +1,6 @@
 import React from "react";
 import {Card, Image} from "react-bootstrap";
-import data from "./data"
+
 export default post => {
     if (!post) { return post }
 
@@ -23,14 +23,9 @@ export default post => {
             components.push(post.content.substring(idx,post.content.length))
         }
     }
-    // console.log(post)
-    if (post.codeblock) {
-        components.push(<span dangerouslySetInnerHTML={{ __html: data}}/>)
-    }
     else {
         components.push(post.content)
     }
-    // components.push(codeblock)
 
     return <Card.Text style={{
         whiteSpace: "pre-wrap",
