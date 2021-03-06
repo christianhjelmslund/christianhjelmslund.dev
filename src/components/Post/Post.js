@@ -5,7 +5,6 @@ import StyledButton from "../UI/StyledComponents/StyledButton";
 import test_aspect_ratio from "../../containers/Posts/Post/test_aspect_ratio.jpeg"
 
 import { Route } from 'react-router-dom'
-import useDecodePost from "../../hooks/decodePost";
 
 const Post = (props) => {
     let pointer = "pointer"
@@ -22,13 +21,11 @@ const Post = (props) => {
                 author: props.author,
                 popularity: props.popularity,
                 category: props.category,
-                image: props.image,
                 images: props.images,
+                teaser: props.teaser
             }
         })
     }
-
-    const content = useDecodePost(props)
 
     return (<Route render={({ history }) => (
         <Card text={"white"}
@@ -41,10 +38,12 @@ const Post = (props) => {
                     <br/>
                     <span style={{fontSize:"small", color:"gray"}}>20/02/2020</span>
                 </Card.Title>
-                <Card.Img variant="top" src={test_aspect_ratio} />
+                <div style={{width: "100%", textAlign: "center"}}>
+                    <Card.Img variant="top" src={test_aspect_ratio} style={{maxWidth: "600px"}} />
+                </div>
                 <br/>
                 <br/>
-                {content}
+                {props.teaser}
             </Card.Body>
             <Card.Footer>
                 <flex-gap style={{

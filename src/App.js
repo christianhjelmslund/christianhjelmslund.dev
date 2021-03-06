@@ -6,8 +6,7 @@ import Layout from "./components/Layout/Layout";
 import Posts from "./containers/Posts/Posts"
 import PostPage from "./containers/Posts/Post/PostPage"
 import AboutMe from "./components/AboutMe/AboutMe"
-import Button from "react-bootstrap/Button"
-
+import Emoji from "./components/Emoji/Emoji";
 
 const App = () => {
 
@@ -15,7 +14,7 @@ const App = () => {
         <Switch>
             <Route path={"/posts"} exact component={Posts}/>
             <Route path={"/about-me"} component={AboutMe}/>
-            <Route path={"/investing"} component={() => <Button variant="primary">Primary</Button>}/>
+            <Route path={"/investing"} component={() => <p className={"under-construction"}>Under Construction... <Emoji symbol={"🏗"}/>️</p>}/>
             <Route path={"/posts/:postId"} component={PostPage}/>
             <Redirect to={"/posts"}/>
         </Switch>

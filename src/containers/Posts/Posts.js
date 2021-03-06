@@ -16,11 +16,11 @@ const StyledInput = styled.input`
       margin: 10px auto;
       width: 100%;
       border: 1px solid #ccc;
-      padding: 0.3rem 0.3rem;
-      border-radius: 10px;
+      border-radius: 20px;
       background: var(--custom_black);
       color: white;
-      text-align: center;
+      text-align: left;
+      padding-left: 15px;
       &:focus {
         outline: none;
         //border-bottom-color:var(--custom_black);
@@ -72,6 +72,7 @@ export const Posts = props => {
                 category={post.category}
                 image={post.image}
                 images={post.images}
+                teaser={post.teaser}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
         }).reverse()
     }
@@ -85,14 +86,14 @@ export const Posts = props => {
             <Row>
                 <StyledInput
                     id={"styledInput"}
-                    placeholder={"search by title"}
+                    placeholder={"Search..."}
                     onChange={event =>
                         filterPostByTitle(event.target.value, posts)
                     }>
                 </StyledInput>
             </Row>
             <Row style={{paddingTop: "10px"}}>
-                <p> At the moment you can filter the posts based on the title </p>
+                <p> At the moment you can filter the posts based on the title or category</p>
             </Row>
             <Row style={{paddingTop: "10px"}}>
                 {  categories.size === 0 ? null :
@@ -122,6 +123,12 @@ export const Posts = props => {
                 <Fragment>
                     <Spinner/>
                 </Fragment>
+        } else if (posts.length === 1) {
+            postView = <Fragment>
+                <Col xs={"2"}>{filterView}</Col>
+                <Col>{filteredPosts ? filteredPosts : posts}</Col>
+                <Col xs={"2"}/>
+            </Fragment>
         } else if (posts.length > 0) {
             postView = <Fragment>
                 <Col xs={"2"}>{filterView}</Col>

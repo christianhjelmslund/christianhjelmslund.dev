@@ -17,3 +17,16 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: large;
 }
+
+a, a:hover {
+
+  color: var(--custom_cyan);
+  text-decoration: none;
+}
+
+.under-construction {
+  color: white;
+  font-size: xxx-large;
+  padding: 100px;
+  text-align: center;
+}

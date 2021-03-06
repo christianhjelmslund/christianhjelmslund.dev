@@ -6,7 +6,7 @@ import FacebookIcon from "../../../assets/images/facebook.svg"
 
 import ExternalNavigation from "../StyledComponents/ExternalNavigation";
 
-import {Navbar, Nav, Row, Container} from "react-bootstrap"
+import {Navbar, Nav, Row } from "react-bootstrap"
 import NavigationItem from "./NavigationItem/NavigationItem";
 
 
@@ -24,18 +24,16 @@ const NavigationBar = () => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto" />
                 <Nav>
-                    <Container style={{width: "100%"}} fluid={true}>
-                        <Row>
-                            <NavigationItem clicked={() => handleNavCollapse(true)} link="/investing">Investing</NavigationItem>
-                            <NavigationItem clicked={() => handleNavCollapse(true)} link="/about-me">About me</NavigationItem>
-                            <ExternalNavigation src={GithubIcon} alt={"Github"}
-                                                link={"https://github.com/christianhjelmslund"}/>
-                            <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}
-                                                link={"https://www.linkedin.com/in/christian-hjelmslund/"}/>
-                            <ExternalNavigation src={FacebookIcon} alt={"Facebook"}
-                                                link={"https://www.facebook.com/ChristianHjelmslund/"}/>
-                        </Row>
-                    </Container>
+                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/investing">Investing</NavigationItem>
+                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/about-me">About me</NavigationItem>
+                    <Row>
+                        <ExternalNavigation src={GithubIcon} alt={"Github"}
+                                            link={"https://github.com/christianhjelmslund"}/>
+                        <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}
+                                            link={"https://www.linkedin.com/in/christian-hjelmslund/"}/>
+                        <ExternalNavigation src={FacebookIcon} alt={"Facebook"}
+                                            link={"https://www.facebook.com/ChristianHjelmslund/"}/>
+                    </Row>
                 </Nav>
             </Navbar.Collapse>
         </React.Fragment>)

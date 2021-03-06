@@ -34,7 +34,7 @@ const PostPage = (props) => {
     });
 
     return  <article className={styles.article}>
-        <span>{post.date}</span>
+        <p className={styles.date}>{post.date}</p>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.divImg}>
             <img className={styles.img} src={test_aspect_ratio} alt={test_aspect_ratio}/>
