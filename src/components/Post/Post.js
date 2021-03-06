@@ -34,11 +34,9 @@ const Post = (props) => {
         <Card text={"white"}
               style={{marginBottom: "20px",
                   backgroundColor: 'var(--custom_black)',
-                  cursor: pointer,
                   borderRadius: "2%"
-              }}
-            onClick={() => onClick(history)}>
-            <Card.Body>
+              }}>
+            <Card.Body style={{cursor: pointer}} onClick={() => onClick(history)}>
                 <Card.Title>{props.title}
                     <br/>
                     <span style={{fontSize:"small", color:"gray"}}>20/02/2020</span>
@@ -57,7 +55,7 @@ const Post = (props) => {
                     {props.category ? props.category.map(category => {
                         return (<StyledButton disabled = {buttonDisabled}
                                               key={category}
-                                              variant="custom_dark"
+                                              variant="custom_dark_blue"
                                               buttonTitle={category}
                                               clicked={() => props.filter(category)}/>)
                     }):null}

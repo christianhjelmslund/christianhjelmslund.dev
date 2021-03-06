@@ -20,5 +20,5 @@
 .NavigationItem a:hover,
 .NavigationItem a.active{
     /*border-bottom: 4px solid var(--custom_cyan);;*/
-    color: var(--custom_dark_blue);
+    color: var(--custom_cyan);
 }
