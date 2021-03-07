@@ -9,7 +9,11 @@ export default post => {
     if (post.content) {
         for (let paragraph in post.content) {
             paragraph = post.content[paragraph]
-            components[paragraph.idx] = <p style={{marginTop: "16px"}} key={paragraph.idx} src={paragraph.url}>{paragraph.content}</p>
+            components[paragraph.idx] =
+                <div key={paragraph.idx}>
+                    <h3 className={styles.keyword}>{paragraph.keyword}</h3>
+                    <p >{paragraph.content}</p>
+                </div>
         }
     }
     if (post.images) {

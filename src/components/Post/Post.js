@@ -2,7 +2,6 @@ import React from "react";
 
 import { Card } from 'react-bootstrap'
 import StyledButton from "../UI/StyledComponents/StyledButton";
-import test_aspect_ratio from "../../containers/Posts/Post/test_aspect_ratio.jpeg"
 
 import { Route } from 'react-router-dom'
 
@@ -22,6 +21,7 @@ const Post = (props) => {
                 popularity: props.popularity,
                 category: props.category,
                 images: props.images,
+                thumbnail: props.thumbnail,
                 teaser: props.teaser
             }
         })
@@ -34,12 +34,12 @@ const Post = (props) => {
                   borderRadius: "2%"
               }}>
             <Card.Body style={{cursor: pointer}} onClick={() => onClick(history)}>
-                <Card.Title>{props.title}
+                <Card.Title style={{fontSize: "x-large"}}>{props.title}
                     <br/>
-                    <span style={{fontSize:"small", color:"gray"}}>20/02/2020</span>
+                    <span style={{fontSize:"small", color:"gray"}}>{props.date}</span>
                 </Card.Title>
                 <div style={{width: "100%", textAlign: "center"}}>
-                    <Card.Img variant="top" src={test_aspect_ratio} style={{maxWidth: "600px"}} />
+                    <Card.Img variant="top" src={props.thumbnail} style={{maxWidth: "600px"}} />
                 </div>
                 <br/>
                 <br/>

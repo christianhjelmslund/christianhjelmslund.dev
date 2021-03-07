@@ -73,6 +73,7 @@ export const Posts = props => {
                 image={post.image}
                 images={post.images}
                 teaser={post.teaser}
+                thumbnail={post.thumbnail}
                 filter={(category) => filterPostsByCategory(category, posts)}/>
         }).reverse()
     }
@@ -125,9 +126,10 @@ export const Posts = props => {
                 </Fragment>
         } else if (posts.length === 1) {
             postView = <Fragment>
-                <Col xs={"2"}>{filterView}</Col>
-                <Col>{filteredPosts ? filteredPosts : posts}</Col>
-                <Col xs={"2"}/>
+                <Col/>
+                <Col xs={"2"}>{filterView} </Col>
+                <Col xs={"5"}>{filteredPosts ? filteredPosts : posts}</Col>
+                <Col/>
             </Fragment>
         } else if (posts.length > 0) {
             postView = <Fragment>

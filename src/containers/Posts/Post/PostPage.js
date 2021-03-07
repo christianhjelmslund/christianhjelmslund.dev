@@ -9,7 +9,6 @@ import styles from "./PostPage.module.css"
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import StyledButton from "../../../components/UI/StyledComponents/StyledButton";
 import useDecodePost from "../../../hooks/decodePost";
-import test_aspect_ratio from "./test_aspect_ratio.jpeg"
 
 const PostPage = (props) => {
     const {onFetchPost} = props
@@ -28,7 +27,7 @@ const PostPage = (props) => {
 
     const categories = post.category.map((category) => {
         return (<StyledButton key={category}
-                              variant="custom_dark_blue"
+                              variant={"custom_dark_blue"}
                               pointerEvents={"none"}
                               buttonTitle={category}/>)
     });
@@ -37,11 +36,15 @@ const PostPage = (props) => {
         <p className={styles.date}>{post.date}</p>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.divImg}>
-            <img className={styles.img} src={test_aspect_ratio} alt={test_aspect_ratio}/>
+            <img className={styles.img} src={post.thumbnail} alt={post.id}/>
         </div>
         <div className={styles.categories}>{categories}</div>
         <p className={styles.author}>{post.author}</p>
+        <div className={styles.divImg}>
+            <div className={styles.teaser}>{post.teaser}</div>
+        </div>
         <div className={styles.content}>{content}</div>
+        <div className={styles.categories}>{categories}</div>
     </article>
 }
 
