@@ -2,7 +2,7 @@ import React, {useState} from "react"
 
 import GithubIcon from "../../../assets/images/github.svg"
 import LinkedInIcon from "../../../assets/images/linkedin.svg"
-import FacebookIcon from "../../../assets/images/facebook.svg"
+import InstagramIcon from "../../../assets/images/instagram.svg"
 
 import ExternalNavigation from "../StyledComponents/ExternalNavigation";
 
@@ -25,14 +25,14 @@ const NavigationBar = () => {
                 <Nav className="mr-auto" />
                 <Nav>
                     <NavigationItem clicked={() => handleNavCollapse(true)} link="/investing">Investing</NavigationItem>
-                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/about-me">About me</NavigationItem>
+                    <NavigationItem clicked={() => handleNavCollapse(true)} link="/about">About</NavigationItem>
                     <Row>
                         <ExternalNavigation src={GithubIcon} alt={"Github"}
                                             link={"https://github.com/christianhjelmslund"}/>
                         <ExternalNavigation src={LinkedInIcon} alt={"LinkedIn"}
                                             link={"https://www.linkedin.com/in/christian-hjelmslund/"}/>
-                        <ExternalNavigation src={FacebookIcon} alt={"Facebook"}
-                                            link={"https://www.facebook.com/ChristianHjelmslund/"}/>
+                        <ExternalNavigation src={InstagramIcon} alt={"Facebook"}
+                                            link={"https://www.instagram.com/christianhjelmslund/"}/>
                     </Row>
                 </Nav>
             </Navbar.Collapse>

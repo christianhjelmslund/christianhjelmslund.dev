@@ -5,7 +5,7 @@ import './custom.scss'
 import Layout from "./components/Layout/Layout";
 import Posts from "./containers/Posts/Posts"
 import PostPage from "./containers/Posts/Post/PostPage"
-import AboutMe from "./components/AboutMe/AboutMe"
+import About from "./components/AboutMe/About"
 import Emoji from "./components/Emoji/Emoji";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
     let routes = (
         <Switch>
             <Route path={"/posts"} exact component={Posts}/>
-            <Route path={"/about-me"} component={AboutMe}/>
+            <Route path={"/about"} component={About}/>
             <Route path={"/investing"} component={() => <p className={"under-construction"}>Under Construction... <Emoji symbol={"🏗"}/>️</p>}/>
             <Route path={"/posts/:postId"} component={PostPage}/>
             <Redirect to={"/posts"}/>

@@ -71,7 +71,7 @@
     margin-right: 4%;
   }
   .keyword {
-    font-size: x-large
+    font-size: large
   }
 
   .title {
@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1800px) {
   .article {
     max-width: 1500px;
     min-width: 1000px;
@@ -101,9 +101,21 @@
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1800px) {
+  .content {
+    font-size: large;
+  }
+
+  .title {
+    font-size: xx-large;
+  }
+
+  .keyword {
+    font-size: x-large
+  }
+
   .article {
-    max-width: 1200px;
-    min-width: 1000px;
+    max-width: 1250px;
+    min-width: 1025px;
   }
 }
 
